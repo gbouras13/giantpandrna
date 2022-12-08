@@ -20,9 +20,9 @@ rule bambu:
 
 rule bambu_porechop:
     input:
-        bams = expand(os.path.join(ALIGN_PORECHOP,"{sample}_sorted.bam"), sample = SAMPLES)
+        bams = expand(os.path.join(ALIGN_RAW,"{sample}_sorted.bam"), sample = SAMPLES)
     output:
-        os.path.join(BAMBU,"se_porechop.rds")
+        os.path.join(BAMBU,"se_raw.rds")
     params:
         os.path.join(ReferenceDir,FastaGunzipped),
         os.path.join(ReferenceDir,GtfGunzipped)

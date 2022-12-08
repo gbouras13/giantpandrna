@@ -26,7 +26,7 @@ ALIGN = os.path.join(PROCESSING, 'ALIGN')
 BAM_STATS = os.path.join(OUTPUT, 'BAM_STATS')
 
 #align_porechop.smk
-ALIGN_PORECHOP = os.path.join(PROCESSING, 'ALIGN_PORECHOP')
+ALIGN_RAW = os.path.join(PROCESSING, 'ALIGN_RAW')
 
 #quantify 
 BAMBU = os.path.join(OUTPUT, 'BAMBU')

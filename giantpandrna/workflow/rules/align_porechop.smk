@@ -1,13 +1,13 @@
-rule minimap_porechop:
+rule minimap_raw:
     input:
         get_input_lr_fastqs
     output:
-        os.path.join(ALIGN_PORECHOP,"{sample}.bam")
+        os.path.join(ALIGN_RAW,"{sample}.bam")
     threads:
         3
     resources:
         mem_mb=BigJobMem,
-        time=BigTime
+        time=MassiveTime
     params:
         os.path.join(ReferenceDir,FastaGunzipped)
     conda:
@@ -17,11 +17,11 @@ rule minimap_porechop:
         minimap2 -ax splice -t {threads} {params[0]} {input[0]} | samtools view -@ {threads} -S -b > {output[0]}
         '''
 
-rule bam_sort_porechop:
+rule bam_sort_raw:
     input:
-        os.path.join(ALIGN_PORECHOP,"{sample}.bam")
+        os.path.join(ALIGN_RAW,"{sample}.bam")
     output:
-        os.path.join(ALIGN_PORECHOP,"{sample}_sorted.bam")
+        os.path.join(ALIGN_RAW,"{sample}_sorted.bam")
     threads:
         BigJobCpu
     resources:
@@ -34,11 +34,11 @@ rule bam_sort_porechop:
         samtools sort -@ {threads} {input[0]} -o {output[0]}
         '''
 
-rule bam_stats_porechop:
+rule bam_stats_raw:
     input:
-        os.path.join(ALIGN_PORECHOP,"{sample}_sorted.bam")
+        os.path.join(ALIGN_RAW,"{sample}_sorted.bam")
     output:
-        os.path.join(BAM_STATS,"{sample}_porechop_bam.stats")
+        os.path.join(BAM_STATS,"{sample}_raw_bam.stats")
     threads:
         BigJobCpu
     resources:
@@ -52,13 +52,13 @@ rule bam_stats_porechop:
         '''
 
 #### aggregation rule
-rule align_aggr_porechop:
-    """aggregate qc porechop"""
+rule align_aggr_raw:
+    """aggregate qc raw"""
     input:
-        expand(os.path.join(ALIGN_PORECHOP,"{sample}_sorted.bam"), sample = SAMPLES),
-        expand(os.path.join(BAM_STATS,"{sample}_porechop_bam.stats"), sample = SAMPLES)
+        expand(os.path.join(ALIGN_RAW,"{sample}_sorted.bam"), sample = SAMPLES),
+        expand(os.path.join(BAM_STATS,"{sample}_raw_bam.stats"), sample = SAMPLES)
     output:
-        os.path.join(FLAGS, "align_porechop.txt")
+        os.path.join(FLAGS, "align_raw.txt")
     threads:
         1
     shell:
