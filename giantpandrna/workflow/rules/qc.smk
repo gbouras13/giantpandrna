@@ -112,7 +112,7 @@ rule pychopper_pcs109_concat:
 rule qc_aggr_dcs109:
     """aggregate qc"""
     input:
-        expand( os.path.join(FINAL_PYCHOPPER_DCS109,"{sample}_pychopper.fastq"), sample = SAMPLES)
+        expand( os.path.join(FINAL_PYCHOPPER_DCS109,"{sample}_pychopper.fastq"), sample = SAMPLES),
         expand( os.path.join(NANOPLOT, "{sample}"),  sample = SAMPLES)
     output:
         os.path.join(FLAGS, "qc_dcs109.txt")
@@ -127,7 +127,7 @@ rule qc_aggr_dcs109:
 rule qc_aggr_pcs109:
     """aggregate qc"""
     input:
-        expand( os.path.join(FINAL_PYCHOPPER_PCS109,"{sample}_pychopper.fastq"), sample = SAMPLES)
+        expand( os.path.join(FINAL_PYCHOPPER_PCS109,"{sample}_pychopper.fastq"), sample = SAMPLES),
         expand( os.path.join(NANOPLOT, "{sample}"),  sample = SAMPLES)
     output:
         os.path.join(FLAGS, "qc_pcs109.txt")
