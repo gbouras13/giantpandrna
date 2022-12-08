@@ -43,7 +43,8 @@ rule pychopper:
     threads:
         BigJobCpu
     resources:
-        mem_mb=BigJobMem
+        mem_mb=BigJobMem,
+        time=BigTime
     conda:
         os.path.join('..', 'envs','pychopper.yaml')
     shell:
