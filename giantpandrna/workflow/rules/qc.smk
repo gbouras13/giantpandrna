@@ -1,19 +1,19 @@
-rule porechop:
-    input:
-        get_input_lr_fastqs
-    output:
-        os.path.join(PORECHOP,"{sample}_porechopped.fastq.gz")
-    threads:
-        BigJobCpu
-    resources:
-        mem_mb=BigJobMem,
-        time=MediumTime
-    conda:
-        os.path.join('..', 'envs','porechop.yaml')
-    shell:
-        '''
-        porechop -i {input} -o {output} --threads {threads}
-        '''
+# rule porechop:
+#     input:
+#         get_input_lr_fastqs
+#     output:
+#         os.path.join(PORECHOP,"{sample}_porechopped.fastq.gz")
+#     threads:
+#         BigJobCpu
+#     resources:
+#         mem_mb=BigJobMem,
+#         time=MediumTime
+#     conda:
+#         os.path.join('..', 'envs','porechop.yaml')
+#     shell:
+#         '''
+#         porechop -i {input} -o {output} --threads {threads}
+#         '''
 
 rule nanoplot:
     input:
