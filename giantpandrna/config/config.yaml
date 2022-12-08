@@ -3,5 +3,6 @@ input:
 output: 'giantpandrna.out/'
 log: 'giantpandrna/giantpandrna.log'
 
-
+# for installDB.smk
+species: 'Rat'
 referenceDir: 'RatDB'
