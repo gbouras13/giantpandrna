@@ -33,6 +33,7 @@ MassiveTime = config["MassiveTime"]
 ###### define the species for transcriptome
 ReferenceDir = config["referenceDir"]
 Species = config['species']
+Kit = config['kit']
 
 if Species == 'Rat':
     FastaGunzipped = 'Rattus_norvegicus.mRatBN7.2.dna.toplevel.fa'

@@ -125,12 +125,13 @@ Directory:         giantpandrna install --directory
 )
 @click.option("--input", "_input", help="Input file/directory", type=str, required=True)
 @click.option('--species','species',  help='Species', show_default=True,  default='Rat',type=click.Choice(['Rat', 'Human']))
+@click.option('--kit','kit',  help='Kit', show_default=True,  default='DCS109',type=click.Choice(['DCS109', 'PCS109']))
 @click.option('--referenceDir','referenceDir',  help='Reference Directory for Transcriptomes', show_default=True,  default='Database')
 @common_options
-def run(_input, output,species, referenceDir, log, **kwargs):
+def run(_input, output,species, referenceDir, kit, log, **kwargs):
     """Run giantpandrna"""
     # Config to add or update in configfile
-    merge_config = {"input": _input, "output": output, "log": log, "species": species, 'referenceDir': referenceDir}
+    merge_config = {"input": _input, "output": output, "log": log, "species": species, 'referenceDir': referenceDir, 'kit': kit}
     # run!
     run_snakemake(
         # Full path to Snakefile
