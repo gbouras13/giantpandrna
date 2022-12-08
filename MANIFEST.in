@@ -1,0 +1,4 @@
+include giantpandrna/giantpandrna.LICENSE
+include giantpandrna/giantpandrna.CITATION
+include giantpandrna/giantpandrna.VERSION
+recursive-include giantpandrna *

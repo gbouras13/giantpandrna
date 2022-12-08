@@ -1,0 +1,11 @@
+channels:
+  - epi2melabs
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - epi2melabs::pychopper
+  - coreutils
+
+
+  

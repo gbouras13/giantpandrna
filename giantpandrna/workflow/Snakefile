@@ -1,0 +1,85 @@
+
+# Concatenate Snakemake's own log file with the master log file
+onsuccess:
+    shell("cat {log} >> " + config['log'])
+
+onerror:
+    shell("cat {log} >> " + config['log'])
+
+outTouch = os.path.join(config['output'], config['input'])
+
+
+
+### DEFAULT CONFIG FILE
+configfile: os.path.join(workflow.basedir, '../', 'config', 'config.yaml')
+
+
+CSV = config['input']
+OUTPUT = config['output']
+THREADS = config['threads']
+
+
+# snakemake params 
+BigJobMem = config["BigJobMem"]
+BigJobCpu = config["BigJobCpu"]
+SmallJobMem = config["SmallJobMem"]
+SmallJobCpu = config["SmallJobCpu"]
+
+SmallTime = config["SmallTime"]
+BigTime = config["BigTime"]
+MediumTime = config["MediumTime"]
+
+###### define the species for transcriptome
+ReferenceDir = config["referenceDir"]
+Species = config['species']
+
+if SPECIES == 'Rat':
+    FastaGunzipped = 'Rattus_norvegicus.mRatBN7.2.dna.toplevel.fa'
+    FastaGunzippedIndex = 'Rattus_norvegicus.mRatBN7.2.dna.toplevel.fa.fai'
+    GtfGunzipped = 'Rattus_norvegicus.mRatBN7.2.108.gtf'
+elif SPECIES == 'Human':
+    FastaGunzipped = 'Homo_sapiens.GRCh38.dna.toplevel.fa'
+    FastaGunzippedIndex = 'Homo_sapiens.GRCh38.dna.toplevel.fa.fai'
+    GtfGunzipped = 'Homo_sapiens.GRCh38.108.gtf'
+
+
+
+
+
+
+
+# STAR can only use 16 threads on hpc for some reason
+# https://github.com/alexdobin/STAR/issues/1074
+
+# need to specify the reads directory
+CSV = config['input']
+
+# define functions
+def get_input_lr_fastqs(wildcards):
+    return dictReads[wildcards.sample]["LR"]
+
+
+### DIRECTORIES
+include: "rules/directories.smk"
+
+# Parse the samples and read files
+include: "rules/samples.smk"
+dictReads = parseSamples(CSV)
+SAMPLES = list(dictReads.keys())
+
+# wildcard constraints
+wildcard_constraints:
+    sample= '|'.join([re.escape(x) for x in SAMPLES])
+
+
+
+# Import rules and functions
+include: "rules/targets.smk"
+include: "rules/qc.smk"
+include: "rules/align.smk"
+include: "rules/quantify.smk"
+
+rule all:
+    input:
+        TargetFiles
+        

@@ -1,0 +1,12 @@
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - nanoplot
+  - porechop
+  - coreutils
+  - pigz
+  - pychopper>=2.0
+
+  

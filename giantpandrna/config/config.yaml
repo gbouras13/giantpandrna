@@ -1,0 +1,4 @@
+# Snakemake config
+input:
+output: 'giantpandrna.out/'
+log: 'giantpandrna/giantpandrna.log'
