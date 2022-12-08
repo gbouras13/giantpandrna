@@ -6,9 +6,20 @@ import os
 # load default config
 configfile: os.path.join(workflow.basedir, '../', 'config', 'config.yaml')
 
-
+# config
 ReferenceDir = config["referenceDir"]
 Species = config['species']
+
+# snakemake params 
+BigJobMem = config["BigJobMem"]
+BigJobCpu = config["BigJobCpu"]
+SmallJobMem = config["SmallJobMem"]
+SmallJobCpu = config["SmallJobCpu"]
+
+SmallTime = config["SmallTime"]
+BigTime = config["BigTime"]
+MediumTime = config["MediumTime"]
+MassiveTime = config["MassiveTime"]
 
 
 # needs to be created before (should exist)
@@ -50,6 +61,9 @@ rule download_fasta:
         os.path.join(ReferenceDir, Fasta)
     threads:
         1
+    resources:
+        mem_mb=SmallJobMem,
+        time=BigTime
     shell:
         """
         wget -c {params[0]} -O {output[1]}
@@ -64,6 +78,9 @@ rule gunzip_fasta:
         os.path.join(ReferenceDir, FastaGunzipped)
     threads:
         1
+    resources:
+        mem_mb=SmallJobMem,
+        time=SmallTime
     shell:
         """
         gunzip {input[0]}
@@ -78,6 +95,9 @@ rule download_gtf:
         os.path.join(ReferenceDir, Gtf)
     threads:
         1
+    resources:
+        mem_mb=SmallJobMem,
+        time=BigTime
     shell:
         """
         wget -c {params[0]} -O {output[1]}
@@ -95,6 +115,9 @@ rule gunzip:
         os.path.join(ReferenceDir, 'unzip.dlflag')
     threads:
         1
+    resources:
+        mem_mb=SmallJobMem,
+        time=BigTime
     shell:
         """
         gunzip {input[0]}

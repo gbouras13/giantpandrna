@@ -28,6 +28,7 @@ SmallJobCpu = config["SmallJobCpu"]
 SmallTime = config["SmallTime"]
 BigTime = config["BigTime"]
 MediumTime = config["MediumTime"]
+MassiveTime = config["MassiveTime"]
 
 ###### define the species for transcriptome
 ReferenceDir = config["referenceDir"]
