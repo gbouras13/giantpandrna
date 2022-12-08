@@ -1,19 +1,19 @@
-# rule porechop:
-#     input:
-#         os.path.join(READS, "{sample}.fastq.gz")
-#     output:
-#         os.path.join(TMP,"{sample}_porechopped.fastq.gz")
-#     threads:
-#         BigJobCpu
-#     resources:
-#         mem_mb=BigJobMem,
-#         time=MediumTime
-#     conda:
-#         os.path.join('..', 'envs','porechop.yaml')
-#     shell:
-#         '''
-#         porechop -i {input} -o {output} --threads {threads}
-#         '''
+rule porechop:
+    input:
+        os.path.join(READS, "{sample}.fastq.gz")
+    output:
+        os.path.join(PORECHOP,"{sample}_porechopped.fastq.gz")
+    threads:
+        BigJobCpu
+    resources:
+        mem_mb=BigJobMem,
+        time=MediumTime
+    conda:
+        os.path.join('..', 'envs','porechop.yaml')
+    shell:
+        '''
+        porechop -i {input} -o {output} --threads {threads}
+        '''
 
 rule nanoplot:
     input:
@@ -113,6 +113,7 @@ rule qc_aggr_dcs109:
     """aggregate qc"""
     input:
         expand( os.path.join(FINAL_PYCHOPPER_DCS109,"{sample}_pychopper.fastq"), sample = SAMPLES)
+        expand( os.path.join(NANOPLOT, "{sample}"),  sample = SAMPLES)
     output:
         os.path.join(FLAGS, "qc_dcs109.txt")
     threads:
@@ -127,6 +128,7 @@ rule qc_aggr_pcs109:
     """aggregate qc"""
     input:
         expand( os.path.join(FINAL_PYCHOPPER_PCS109,"{sample}_pychopper.fastq"), sample = SAMPLES)
+        expand( os.path.join(NANOPLOT, "{sample}"),  sample = SAMPLES)
     output:
         os.path.join(FLAGS, "qc_pcs109.txt")
     threads:

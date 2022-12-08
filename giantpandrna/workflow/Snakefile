@@ -79,6 +79,7 @@ wildcard_constraints:
 include: "rules/targets.smk"
 include: "rules/qc.smk"
 include: "rules/align.smk"
+include: "rules/align_porechop.smk"
 include: "rules/quantify.smk"
 
 rule all:

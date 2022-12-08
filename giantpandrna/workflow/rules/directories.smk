@@ -13,8 +13,8 @@ RESULTS = os.path.join(OUTPUT, 'RESULTS')
 
 
 
-
 ### qc.smk
+PORECHOP = os.path.join(PROCESSING, 'PORECHOP')
 NANOPLOT = os.path.join(PROCESSING, 'NANOPLOT')
 PYCHOPPER = os.path.join(PROCESSING, 'PYCHOPPER')
 PYCHOPPER_RESCUE = os.path.join(PROCESSING, 'PYCHOPPER_RESCUE')
@@ -24,6 +24,9 @@ FINAL_PYCHOPPER_DCS109 =  os.path.join(OUTPUT, 'FINAL_PYCHOPPER_DCS109')
 #align.smk 
 ALIGN = os.path.join(PROCESSING, 'ALIGN')
 BAM_STATS = os.path.join(OUTPUT, 'BAM_STATS')
+
+#align_porechop.smk
+ALIGN_PORECHOP = os.path.join(PROCESSING, 'ALIGN_PORECHOP')
 
 #quantify 
 BAMBU = os.path.join(OUTPUT, 'BAMBU')
