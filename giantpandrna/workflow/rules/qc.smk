@@ -30,29 +30,6 @@ rule nanoplot:
     shell:
         'NanoPlot --prefix pass --fastq {input} -t {threads} -o {output.dir}'
 
-
-rule pychopper:
-    input:
-        get_input_lr_fastqs
-    output:
-        os.path.join(PYCHOPPER,"{sample}_input.fastq"),
-        os.path.join(PYCHOPPER,"{sample}_pychop_report.pdf"),
-        os.path.join(PYCHOPPER,"{sample}_pychop_unclassified.fastq"),
-        os.path.join(PYCHOPPER,"{sample}_pychop_rescued.fastq"),
-        os.path.join(PYCHOPPER,"{sample}_pychop_full_length_output.fastq")
-    threads:
-        BigJobCpu
-    resources:
-        mem_mb=BigJobMem,
-        time=BigTime
-    conda:
-        os.path.join('..', 'envs','pychopper.yaml')
-    shell:
-        '''
-        gunzip -c {input[0]} > {output[0]}
-        pychopper -r {output[1]} -u {output[2]} -w {output[3]} -x DCS109 -t {threads} {output[0]} {output[4]}
-        '''
-
 rule pychopper:
     input:
         get_input_lr_fastqs
