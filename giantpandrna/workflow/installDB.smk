@@ -15,7 +15,7 @@ Species = config['species']
 if not os.path.exists(os.path.join(ReferenceDir)):
   os.makedirs(os.path.join(ReferenceDir))
 
-if SPECIES == 'Rat':
+if Species == 'Rat':
     Fasta = 'Rattus_norvegicus.mRatBN7.2.dna.toplevel.fa.gz'
     FastaUrl = 'ftp://ftp.ensembl.org/pub/release-108/fasta/rattus_norvegicus/dna/Rattus_norvegicus.mRatBN7.2.dna.toplevel.fa.gz'
     FastaGunzipped = 'Rattus_norvegicus.mRatBN7.2.dna.toplevel.fa'
@@ -23,7 +23,7 @@ if SPECIES == 'Rat':
     Gtf = 'Rattus_norvegicus.mRatBN7.2.108.gtf.gz'
     GtfUrl = 'ftp://ftp.ensembl.org/pub/release-108/gtf/rattus_norvegicus/Rattus_norvegicus.mRatBN7.2.108.gtf.gz'
     GtfGunzipped = 'Rattus_norvegicus.mRatBN7.2.108.gtf'
-elif SPECIES == 'Human':
+elif Species == 'Human':
     Fasta = 'Homo_sapiens.GRCh38.dna.toplevel.fa.gz'
     FastaUrl = 'ftp://ftp.ensembl.org/pub/release-108/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.toplevel.fa.gz'
     FastaGunzipped = 'Homo_sapiens.GRCh38.dna.toplevel.fa'
