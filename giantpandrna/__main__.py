@@ -132,7 +132,11 @@ def run(_input, output,species, log, **kwargs):
     )
 
 
-@click.command(epilog=help_msg_extra, help_option_names=["-h", "--help"], ignore_unknown_options=True)
+@click.command(
+    epilog=help_msg_extra,
+    context_settings=dict(
+        help_option_names=["-h", "--help"], ignore_unknown_options=True
+    ))
 @click.option('--species','species',  help='Species', show_default=True,  default='Rat',type=click.Choice(['Rat', 'Human']))
 def install(**kwargs):
     """Install databases"""
