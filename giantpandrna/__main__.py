@@ -148,7 +148,12 @@ def run(_input, output,species, referenceDir, log, **kwargs):
     ))
 @click.option('--species','species',  help='Species', show_default=True,  default='Rat',type=click.Choice(['Rat', 'Human']))
 @click.option('--referenceDir','referenceDir',  help='Reference Directory for Transcriptomes', show_default=True,  default='Database')
-@common_options
+@click.option(
+            "--use-conda/--no-use-conda",
+            default=True,
+            help="Use conda for Snakemake rules",
+            show_default=True,
+        )
 def install(species, referenceDir, **kwargs):
     # Config to add or update in configfile
     merge_config = { "species": species, 'referenceDir': referenceDir}
