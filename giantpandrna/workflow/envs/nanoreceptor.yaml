@@ -1,10 +1,10 @@
 channels:
-    - gbouras13
-    - conda-forge
-    - bioconda
-    - defaults
-  dependencies:
-    - nanoreceptor
+  - gbouras13
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - nanoreceptor
   
   
     
