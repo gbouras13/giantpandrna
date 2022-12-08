@@ -154,6 +154,19 @@ def run(_input, output,species, referenceDir, log, **kwargs):
             help="Use conda for Snakemake rules",
             show_default=True,
         )
+@click.option(
+            "--snake-default",
+            multiple=True,
+            default=[
+                "--rerun-incomplete",
+                "--printshellcmds",
+                "--nolock",
+                "--show-failed-logs",
+                "--conda-frontend conda"
+            ],
+            help="Customise Snakemake runtime args",
+            show_default=True,
+        )
 def install(species, referenceDir, **kwargs):
     # Config to add or update in configfile
     merge_config = { "species": species, 'referenceDir': referenceDir}
