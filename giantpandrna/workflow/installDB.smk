@@ -90,7 +90,7 @@ rule gunzip:
         os.path.join(ReferenceDir, Fasta)
         os.path.join(ReferenceDir, Gtf)
     output:
-        os.path.join(ReferenceDir, FastaGunzipped)
+        os.path.join(ReferenceDir, FastaGunzipped),
         os.path.join(ReferenceDir, GtfGunzipped),
         os.path.join(ReferenceDir, 'unzip.dlflag')
     threads:
