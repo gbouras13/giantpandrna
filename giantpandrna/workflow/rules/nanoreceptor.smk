@@ -28,6 +28,9 @@ rule pychopper_nanoreceptor_aggr:
         os.path.join(FLAGS, "pychopperNanoreceptor.txt")
     threads:
         1
+    resources:
+        mem_mb=SmallJobMem,
+        time=SmallTime
     shell:
         """
         touch {output[0]}
@@ -62,6 +65,9 @@ rule raw_nanoreceptor_aggr:
         os.path.join(FLAGS, "rawNanoreceptor.txt")
     threads:
         1
+    resources:
+        mem_mb=SmallJobMem,
+        time=SmallTime
     shell:
         """
         touch {output[0]}

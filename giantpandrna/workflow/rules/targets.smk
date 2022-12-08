@@ -19,6 +19,6 @@ TargetFiles = [
  os.path.join(FLAGS, "align_porechop.txt"),
  os.path.join(BAMBU,"se.rds"),
  os.path.join(BAMBU,"se_porechop.rds"),
- pychopperNanoreceptor,
- os.path.join(FLAGS, "rawNanoreceptor.txt")
+ #pychopperNanoreceptor,
+ #os.path.join(FLAGS, "rawNanoreceptor.txt")
 ]
