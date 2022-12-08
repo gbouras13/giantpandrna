@@ -87,7 +87,7 @@ rule download_gtf:
 rule gunzip:
     """gunzip files."""
     input:
-        os.path.join(ReferenceDir, Fasta)
+        os.path.join(ReferenceDir, Fasta),
         os.path.join(ReferenceDir, Gtf)
     output:
         os.path.join(ReferenceDir, FastaGunzipped),
