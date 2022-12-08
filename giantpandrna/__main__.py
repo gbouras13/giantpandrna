@@ -107,6 +107,15 @@ Available targets:
     print_targets   List available targets
 """
 
+help_msg_install = """
+\b
+CLUSTER EXECUTION:
+giantpandrna install ... 
+\b
+RUN EXAMPLES:
+Species:           giantpandrna install --species [Rat|Human]
+Directory:         giantpandrna install --directory 
+"""
 
 @click.command(
     epilog=help_msg_extra,
@@ -116,6 +125,7 @@ Available targets:
 )
 @click.option("--input", "_input", help="Input file/directory", type=str, required=True)
 @click.option('--species','species',  help='Species', show_default=True,  default='Rat',type=click.Choice(['Rat', 'Human']))
+@click.option('--referenceDir','referenceDir',  help='Reference Directory for Transcriptomes', show_default=True,  default='Database')
 @common_options
 def run(_input, output,species, log, **kwargs):
     """Run giantpandrna"""
@@ -138,6 +148,7 @@ def run(_input, output,species, log, **kwargs):
         help_option_names=["-h", "--help"], ignore_unknown_options=True
     ))
 @click.option('--species','species',  help='Species', show_default=True,  default='Rat',type=click.Choice(['Rat', 'Human']))
+@click.option('--referenceDir','referenceDir',  help='Reference Directory for Transcriptomes', show_default=True,  default='Database')
 def install(**kwargs):
     """Install databases"""
     run_snakemake(
