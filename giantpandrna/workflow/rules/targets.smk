@@ -7,11 +7,18 @@ if Kit == "DCS109":
 else:
     pychopperFile = os.path.join(FLAGS, "qc_pcs109.txt")
 
+if Kit == "DCS109":
+    pychopperNanoreceptor = os.path.join(FLAGS, "pychopperNanoreceptor.txt")
+else:
+    pychopperNanoreceptor = []
+
 
 TargetFiles = [
     pychopperFile,
  os.path.join(FLAGS, "align.txt"),
  os.path.join(FLAGS, "align_porechop.txt"),
  os.path.join(BAMBU,"se.rds"),
- os.path.join(BAMBU,"se_porechop.rds")
+ os.path.join(BAMBU,"se_porechop.rds"),
+ pychopperNanoreceptor,
+ os.path.join(FLAGS, "rawNanoreceptor.txt")
 ]

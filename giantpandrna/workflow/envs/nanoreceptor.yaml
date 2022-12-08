@@ -1,0 +1,11 @@
+channels:
+    - gbouras13
+    - conda-forge
+    - bioconda
+    - defaults
+  dependencies:
+    - nanoreceptor
+  
+  
+    
+  

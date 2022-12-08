@@ -31,6 +31,9 @@ ALIGN_PORECHOP = os.path.join(PROCESSING, 'ALIGN_PORECHOP')
 #quantify 
 BAMBU = os.path.join(OUTPUT, 'BAMBU')
 
+# nanareceptor
+NANORECEPTOR_RAW = os.path.join(OUTPUT, 'NANORECEPTOR_RAW')
+NANORECEPTOR_PYCHOPPER = os.path.join(OUTPUT, 'NANORECEPTOR_PYCHOPPER')
 
 
 
