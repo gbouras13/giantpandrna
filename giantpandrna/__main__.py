@@ -153,7 +153,7 @@ def install(species, referenceDir, **kwargs):
     merge_config = { "species": species, 'referenceDir': referenceDir}
     """Install databases"""
     run_snakemake(
-        snakefile_path=snake_base(os.path.join('workflow', 'rules', 'installDB.smk')),
+        snakefile_path=snake_base(os.path.join('workflow', 'installDB.smk')),
         merge_config=merge_config,
         **kwargs)
 
