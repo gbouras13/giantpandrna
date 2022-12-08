@@ -70,22 +70,6 @@ rule download_fasta:
         touch {output[0]}
         """
 
-rule gunzip_fasta:
-    """Rule to Download rat fasta."""
-    input:
-        os.path.join(ReferenceDir, Fasta)
-    output:
-        os.path.join(ReferenceDir, FastaGunzipped)
-    threads:
-        1
-    resources:
-        mem_mb=SmallJobMem,
-        time=SmallTime
-    shell:
-        """
-        gunzip {input[0]}
-        """
-
 rule download_gtf:
     """Rule to Download rat gtf."""
     params:
