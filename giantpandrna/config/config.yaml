@@ -2,6 +2,7 @@
 input:
 output: 'giantpandrna.out/'
 log: 'giantpandrna/giantpandrna.log'
+threads: 16
 
 # for installDB.smk
 species: 'Rat'
