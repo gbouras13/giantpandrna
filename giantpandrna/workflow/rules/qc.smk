@@ -1,6 +1,6 @@
 rule porechop:
     input:
-        os.path.join(READS, "{sample}.fastq.gz")
+        get_input_lr_fastqs
     output:
         os.path.join(PORECHOP,"{sample}_porechopped.fastq.gz")
     threads:
