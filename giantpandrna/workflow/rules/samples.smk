@@ -33,7 +33,7 @@ def parseSamples(csvfile):
     # for reading from directory
     #if os.path.isdir(readFileDir):
     #   sampleDict = samplesFromDirectory(readFileDir)
-    if os.path.isfile(csvfile)
+    if os.path.isfile(csvfile):
         sampleDict = samplesFromCsv(csvfile)
     else:
         sys.stderr.write("\n"
