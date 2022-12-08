@@ -34,11 +34,11 @@ MassiveTime = config["MassiveTime"]
 ReferenceDir = config["referenceDir"]
 Species = config['species']
 
-if SPECIES == 'Rat':
+if Species == 'Rat':
     FastaGunzipped = 'Rattus_norvegicus.mRatBN7.2.dna.toplevel.fa'
     FastaGunzippedIndex = 'Rattus_norvegicus.mRatBN7.2.dna.toplevel.fa.fai'
     GtfGunzipped = 'Rattus_norvegicus.mRatBN7.2.108.gtf'
-elif SPECIES == 'Human':
+elif Species == 'Human':
     FastaGunzipped = 'Homo_sapiens.GRCh38.dna.toplevel.fa'
     FastaGunzippedIndex = 'Homo_sapiens.GRCh38.dna.toplevel.fa.fai'
     GtfGunzipped = 'Homo_sapiens.GRCh38.108.gtf'
