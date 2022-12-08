@@ -5,3 +5,4 @@ channels:
 dependencies:
   - bioconductor-bambu
   - bioconductor-bsgenome
+  - r-biocmanager
