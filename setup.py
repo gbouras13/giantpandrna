@@ -32,7 +32,7 @@ setup(
     packages=find_packages(),
     url="https://github.com/gbouras13/giantpandrna",
     python_requires=">=3.7",
-    description="ONT Long-read RNA quanitification pipeline using Bambu",
+    description="ONT Long-read cDNA quanitification pipeline using Bambu",
     version=get_version(),
     author="George Bouras",
     author_email="george.bouras@adelaide.edu.au",

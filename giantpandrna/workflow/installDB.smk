@@ -37,7 +37,8 @@ rule all:
     input:
         os.path.join(ReferenceDir,'download_fasta.dlflag'),
         os.path.join(ReferenceDir,'download_gtf.dlflag'),
-        os.path.join(ReferenceDir, 'unzip.dlflag')
+        os.path.join(ReferenceDir, 'unzip.dlflag'),
+        os.path.join(ReferenceDir, FastaGunzippedIndex)
 
 
 rule download_fasta:
@@ -45,8 +46,8 @@ rule download_fasta:
     params:
         FastaUrl
     output:
-        os.path.join(Reference_Dir,'download_fasta.dlflag'),
-        os.path.join(Reference_Dir, Fasta)
+        os.path.join(ReferenceDir,'download_fasta.dlflag'),
+        os.path.join(ReferenceDir, Fasta)
     threads:
         1
     shell:
@@ -58,9 +59,9 @@ rule download_fasta:
 rule gunzip_fasta:
     """Rule to Download rat fasta."""
     input:
-        os.path.join(Reference_Dir, Fasta)
+        os.path.join(ReferenceDir, Fasta)
     output:
-        os.path.join(Reference_Dir, FastaGunzipped)
+        os.path.join(ReferenceDir, FastaGunzipped)
     threads:
         1
     shell:
@@ -73,8 +74,8 @@ rule download_gtf:
     params:
         GtfUrl
     output:
-        os.path.join(Reference_Dir,'download_gtf.dlflag'),
-        os.path.join(Reference_Dir, Gtf)
+        os.path.join(ReferenceDir,'download_gtf.dlflag'),
+        os.path.join(ReferenceDir, Gtf)
     threads:
         1
     shell:
@@ -86,12 +87,12 @@ rule download_gtf:
 rule gunzip:
     """gunzip files."""
     input:
-        os.path.join(Reference_Dir, Fasta)
-        os.path.join(Reference_Dir, Gtf)
+        os.path.join(ReferenceDir, Fasta)
+        os.path.join(ReferenceDir, Gtf)
     output:
-        os.path.join(Reference_Dir, FastaGunzipped)
-        os.path.join(Reference_Dir, GtfGunzipped),
-        os.path.join(Reference_Dir, 'unzip.dlflag')
+        os.path.join(ReferenceDir, FastaGunzipped)
+        os.path.join(ReferenceDir, GtfGunzipped),
+        os.path.join(ReferenceDir, 'unzip.dlflag')
     threads:
         1
     shell:
@@ -104,9 +105,9 @@ rule gunzip:
 rule index_fasta:
     """index fasta for bambu"""
     input:
-        os.path.join(Reference_Dir, FastaGunzipped)
+        os.path.join(ReferenceDir, FastaGunzipped)
     output:
-        os.path.join(Reference_Dir, FastaGunzippedIndex)
+        os.path.join(ReferenceDir, FastaGunzippedIndex)
     threads:
         1
     resources:
