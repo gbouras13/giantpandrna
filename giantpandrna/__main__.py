@@ -127,10 +127,10 @@ Directory:         giantpandrna install --directory
 @click.option('--species','species',  help='Species', show_default=True,  default='Rat',type=click.Choice(['Rat', 'Human']))
 @click.option('--referenceDir','referenceDir',  help='Reference Directory for Transcriptomes', show_default=True,  default='Database')
 @common_options
-def run(_input, output,species, log, **kwargs):
+def run(_input, output,species, referenceDir, log, **kwargs):
     """Run giantpandrna"""
     # Config to add or update in configfile
-    merge_config = {"input": _input, "output": output, "log": log, "species": species}
+    merge_config = {"input": _input, "output": output, "log": log, "species": species, 'referenceDir': referenceDir}
 
     # run!
     run_snakemake(
@@ -149,10 +149,13 @@ def run(_input, output,species, log, **kwargs):
     ))
 @click.option('--species','species',  help='Species', show_default=True,  default='Rat',type=click.Choice(['Rat', 'Human']))
 @click.option('--referenceDir','referenceDir',  help='Reference Directory for Transcriptomes', show_default=True,  default='Database')
-def install(**kwargs):
+def install(species, referenceDir, **kwargs):
+    # Config to add or update in configfile
+    merge_config = { "species": species, 'referenceDir': referenceDir}
     """Install databases"""
     run_snakemake(
         snakefile_path=snake_base(os.path.join('workflow', 'rules', 'installDB.smk')),
+        merge_config=merge_config
     **kwargs)
 
 @click.command()
