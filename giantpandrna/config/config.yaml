@@ -2,3 +2,6 @@
 input:
 output: 'giantpandrna.out/'
 log: 'giantpandrna/giantpandrna.log'
+
+
+referenceDir: 'RatDB'
