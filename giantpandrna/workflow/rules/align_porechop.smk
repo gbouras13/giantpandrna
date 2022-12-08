@@ -34,7 +34,7 @@ rule bam_sort_porechop:
         samtools sort -@ {threads} {input[0]} -o {output[0]}
         '''
 
-rule bam_stats:
+rule bam_stats_porechop:
     input:
         os.path.join(ALIGN_PORECHOP,"{sample}_sorted.bam")
     output:
