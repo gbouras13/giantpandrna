@@ -131,7 +131,6 @@ def run(_input, output,species, referenceDir, log, **kwargs):
     """Run giantpandrna"""
     # Config to add or update in configfile
     merge_config = {"input": _input, "output": output, "log": log, "species": species, 'referenceDir': referenceDir}
-
     # run!
     run_snakemake(
         # Full path to Snakefile
@@ -155,8 +154,8 @@ def install(species, referenceDir, **kwargs):
     """Install databases"""
     run_snakemake(
         snakefile_path=snake_base(os.path.join('workflow', 'rules', 'installDB.smk')),
-        merge_config=merge_config
-    **kwargs)
+        merge_config=merge_config,
+        **kwargs)
 
 @click.command()
 @common_options
