@@ -1,3 +1,7 @@
+options(
+    BIOCONDUCTOR_CONFIG_FILE = "file:///hpcfs/users/a1667917/bioconductor/config.yaml"
+)
+
 library(bambu)
 
 bam_files <- snakemake@input[["bams"]]
