@@ -16,7 +16,15 @@ giantpandrna run --help
 Steps
 ========
 
-1. 
+1. Runs pychopper on the raw input reads (qc.smk)
+2. If you have DCS109, runs pychopper resuce mode to rescue more unclassified reads (qc.smk)
+3. Aggreagates all full length and rescued reads (qc.smk)
+4. Maps all reads from 3. using minimap2 against your chosen transcriptome (align.smk)
+5. Sorts bam and calculates statistics (align.smk)
+6. Runs [bambu](https://github.com/GoekeLab/bambu) on all input bams.
+
+
+
 
 
 

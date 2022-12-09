@@ -4,10 +4,10 @@ rule minimap_raw:
     output:
         os.path.join(ALIGN_RAW,"{sample}.bam")
     threads:
-        3
+        BigJobCpu
     resources:
         mem_mb=BigJobMem,
-        time=MassiveTime
+        time=BigTime
     params:
         os.path.join(ReferenceDir,FastaGunzipped)
     conda:
@@ -26,7 +26,7 @@ rule bam_sort_raw:
         BigJobCpu
     resources:
         mem_mb=BigJobMem,
-        time=MediumTime
+        time=BigTime
     conda:
         os.path.join('..', 'envs','align.yaml')
     shell:
@@ -43,7 +43,7 @@ rule bam_stats_raw:
         BigJobCpu
     resources:
         mem_mb=SmallJobMem,
-        time=MediumTime
+        time=BigTime
     conda:
         os.path.join('..', 'envs','align.yaml')
     shell:
@@ -61,6 +61,9 @@ rule align_aggr_raw:
         os.path.join(FLAGS, "align_raw.txt")
     threads:
         1
+    resources:
+        mem_mb=SmallJobMem,
+        time=SmallTime
     shell:
         """
         touch {output[0]}
