@@ -128,7 +128,7 @@ referenceDir:      giantpandrna install --referenceDir
 @click.option('--kit','kit',  help='Kit', show_default=True,  default='DCS109',type=click.Choice(['DCS109', 'PCS109']))
 @click.option('--referenceDir','referenceDir',  help='Reference Directory for Transcriptomes', show_default=True,  default='Database')
 @common_options
-def run(_input, output,species, referenceDir, kit, log, **kwargs):
+def run(_input, output, species, referenceDir, kit, log, **kwargs):
     """Run giantpandrna"""
     # Config to add or update in configfile
     merge_config = {"input": _input, "output": output, "log": log, "species": species, 'referenceDir': referenceDir, 'kit': kit}
@@ -168,13 +168,14 @@ def run(_input, output,species, referenceDir, kit, log, **kwargs):
             help="Customise Snakemake runtime args",
             show_default=True,
         )
-def install(species, referenceDir, **kwargs):
+def install(species, referenceDir,  log, **kwargs):
     # Config to add or update in configfile
-    merge_config = {"species": species, 'referenceDir': referenceDir}
+    merge_config = {"log": log, "species": species, 'referenceDir': referenceDir}
     """Install databases"""
     run_snakemake(
         snakefile_path=snake_base(os.path.join('workflow','installDB.smk')),
         merge_config=merge_config,
+        log=log,
         **kwargs)
 
 @click.command()
@@ -190,10 +191,11 @@ def citation(**kwargs):
     print_citation()
 
 
+cli.add_command(install)
 cli.add_command(run)
 cli.add_command(config)
 cli.add_command(citation)
-cli.add_command(install)
+
 
 def main():
     print_version()

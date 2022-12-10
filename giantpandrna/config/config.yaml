@@ -6,8 +6,8 @@ threads: 16
 kit: 'DCS109'
 
 # for installDB.smk
-# species: 'Rat'
-# referenceDir: 'RatDB'
+species: 'Rat'
+referenceDir: 'RatDB'
 
 # Snakemake Params
 BigJobMem: 32000     
