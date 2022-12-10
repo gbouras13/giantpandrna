@@ -175,7 +175,6 @@ def install(species, referenceDir,  **kwargs):
     run_snakemake(
         snakefile_path=snake_base(os.path.join('workflow','installDB.smk')),
         merge_config=merge_config,
-        log=log,
         **kwargs)
 
 @click.command()
