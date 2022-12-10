@@ -38,7 +38,7 @@ if Species == 'Rat':
     GtfUrl = 'ftp://ftp.ensembl.org/pub/release-108/gtf/rattus_norvegicus/Rattus_norvegicus.mRatBN7.2.108.gtf.gz'
     GtfGunzipped = 'Rattus_norvegicus.mRatBN7.2.108.gtf'
 elif Species == 'Human':
-    Fasta = 'Homo_sapiens.GRCh38.dna.primary_assembly.gz'
+    Fasta = 'Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz'
     FastaUrl = 'ftp://ftp.ensembl.org/pub/release-108/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz'
     FastaGunzipped = 'Homo_sapiens.GRCh38.dna.primary_assembly.fa'
     FastaGunzippedIndex = 'Homo_sapiens.GRCh38.dna.primary_assembly.fa.fai'
