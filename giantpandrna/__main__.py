@@ -114,7 +114,7 @@ giantpandrna install ...
 \b
 RUN EXAMPLES:
 Species:           giantpandrna install --species [Rat|Human]
-Directory:         giantpandrna install --directory 
+referenceDir:      giantpandrna install --referenceDir 
 """
 
 @click.command(
