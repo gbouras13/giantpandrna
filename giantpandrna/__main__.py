@@ -168,13 +168,6 @@ def run(_input, output, species, referenceDir, kit, log, **kwargs):
         )
 @click.option('--species', 'species', help='Species', show_default=True,  default='Rat',type=click.Choice(['Rat', 'Human']))
 @click.option('--referenceDir','referenceDir',  help='Reference Directory for Transcriptomes', show_default=True,  default='Database')
-@click.option(
-            "--configfile",
-            default="config.yaml",
-            show_default=False,
-            callback=default_to_output,
-            help="Custom config file [default: (outputDir)/config.yaml]",
-        )
 def install(species, referenceDir,  **kwargs):
     # Config to add or update in configfile
     merge_config = { "species": species, 'referenceDir': referenceDir }
