@@ -166,8 +166,8 @@ def run(_input, output, species, referenceDir, kit, log, **kwargs):
             help="Customise Snakemake runtime args",
             show_default=True,
         )
-@click.option('--species',  help='Species', show_default=True,  default='Rat',type=click.Choice(['Rat', 'Human']))
-@click.option('--referenceDir',  help='Reference Directory for Transcriptomes', show_default=True,  default='Database')
+@click.option('--species', 'species', help='Species', show_default=True,  default='Rat',type=click.Choice(['Rat', 'Human']))
+@click.option('--referenceDir','referenceDir',  help='Reference Directory for Transcriptomes', show_default=True,  default='Database')
 def install(species, referenceDir,  **kwargs):
     # Config to add or update in configfile
     merge_config = { "species": species, 'referenceDir': referenceDir }
