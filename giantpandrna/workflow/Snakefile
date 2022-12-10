@@ -40,8 +40,8 @@ if Species == 'Rat':
     FastaGunzippedIndex = 'Rattus_norvegicus.mRatBN7.2.dna.toplevel.fa.fai'
     GtfGunzipped = 'Rattus_norvegicus.mRatBN7.2.108.gtf'
 elif Species == 'Human':
-    FastaGunzipped = 'Homo_sapiens.GRCh38.dna.toplevel.fa'
-    FastaGunzippedIndex = 'Homo_sapiens.GRCh38.dna.toplevel.fa.fai'
+    FastaGunzipped = 'Homo_sapiens.GRCh38.dna.primary_assembly.fa'
+    FastaGunzippedIndex = 'Homo_sapiens.GRCh38.dna.primary_assembly.fa.fai'
     GtfGunzipped = 'Homo_sapiens.GRCh38.108.gtf'
 
 

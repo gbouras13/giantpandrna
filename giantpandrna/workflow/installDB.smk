@@ -26,6 +26,9 @@ MassiveTime = config["MassiveTime"]
 if not os.path.exists(os.path.join(ReferenceDir)):
   os.makedirs(os.path.join(ReferenceDir))
 
+# primary assembly not top level
+# https://github.com/lh3/minimap2/issues/37
+
 if Species == 'Rat':
     Fasta = 'Rattus_norvegicus.mRatBN7.2.dna.toplevel.fa.gz'
     FastaUrl = 'ftp://ftp.ensembl.org/pub/release-108/fasta/rattus_norvegicus/dna/Rattus_norvegicus.mRatBN7.2.dna.toplevel.fa.gz'
@@ -36,9 +39,9 @@ if Species == 'Rat':
     GtfGunzipped = 'Rattus_norvegicus.mRatBN7.2.108.gtf'
 elif Species == 'Human':
     Fasta = 'Homo_sapiens.GRCh38.dna.toplevel.fa.gz'
-    FastaUrl = 'ftp://ftp.ensembl.org/pub/release-108/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.toplevel.fa.gz'
-    FastaGunzipped = 'Homo_sapiens.GRCh38.dna.toplevel.fa'
-    FastaGunzippedIndex = 'Homo_sapiens.GRCh38.dna.toplevel.fa.fai'
+    FastaUrl = 'ftp://ftp.ensembl.org/pub/release-108/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz'
+    FastaGunzipped = 'Homo_sapiens.GRCh38.dna.primary_assembly.fa'
+    FastaGunzippedIndex = 'Homo_sapiens.GRCh38.dna.primary_assembly.fa.fai'
     Gtf = 'Homo_sapiens.GRCh38.108.gtf.gz'
     GtfUrl = 'ftp://ftp.ensembl.org/pub/release-108/gtf/homo_sapiens/Homo_sapiens.GRCh38.108.gtf.gz'
     GtfGunzipped = 'Homo_sapiens.GRCh38.108.gtf'
