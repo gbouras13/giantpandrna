@@ -147,8 +147,6 @@ def run(_input, output, species, referenceDir, kit, log, **kwargs):
     context_settings=dict(
         help_option_names=["-h", "--help"], ignore_unknown_options=True
     ))
-@click.option('--species','species',  help='Species', show_default=True,  default='Rat',type=click.Choice(['Rat', 'Human']))
-@click.option('--referenceDir','referenceDir',  help='Reference Directory for Transcriptomes', show_default=True,  default='Database')
 @click.option(
             "--use-conda/--no-use-conda",
             default=True,
@@ -168,14 +166,17 @@ def run(_input, output, species, referenceDir, kit, log, **kwargs):
             help="Customise Snakemake runtime args",
             show_default=True,
         )
+@click.option('--species',  help='Species', show_default=True,  default='Rat',type=click.Choice(['Rat', 'Human']))
+@click.option('--referenceDir',  help='Reference Directory for Transcriptomes', show_default=True,  default='Database')
 def install(species, referenceDir,  **kwargs):
     # Config to add or update in configfile
-    merge_config = { "species": species, 'referenceDir': referenceDir}
+    merge_config = { "species": species, 'referenceDir': referenceDir }
     """Install databases"""
     run_snakemake(
         snakefile_path=snake_base(os.path.join('workflow','installDB.smk')),
         merge_config=merge_config,
         **kwargs)
+
 
 @click.command()
 @common_options
