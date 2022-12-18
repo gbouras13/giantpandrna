@@ -15,7 +15,7 @@ rule nanoreceptor_pychopper:
         os.path.join('..', 'envs','nanoreceptor.yaml')
     shell:
         """
-        nanoreceptor -i {input[0]} -o {params[0]} -t {threads} -p {wildcards.sample}
+        nanoreceptor.py -i {input[0]} -o {params[0]} -t {threads} -p {wildcards.sample}
         """
 
 
@@ -52,7 +52,7 @@ rule nanoreceptor_raw:
         os.path.join('..', 'envs','nanoreceptor.yaml')
     shell:
         """
-        nanoreceptor -i {input[0]} -o {params[0]} -t {threads} -p {wildcards.sample}
+        nanoreceptor.py -i {input[0]} -o {params[0]} -t {threads} -p {wildcards.sample}
         """
 
 
