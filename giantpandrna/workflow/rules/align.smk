@@ -6,7 +6,7 @@ rule minimap:
     threads:
         BigJobCpu
     resources:
-        mem_mb=BigJobMem,
+        mem_mb=MassiveJobMem,
         time=BigTime
     params:
         os.path.join(ReferenceDir,FastaGunzipped)
