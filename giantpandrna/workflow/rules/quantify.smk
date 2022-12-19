@@ -18,23 +18,6 @@ rule bambu:
         "../scripts/bambu.R"
 
 
-rule bambu_porechop:
-    input:
-        bams = expand(os.path.join(ALIGN_RAW,"{sample}_sorted.bam"), sample = SAMPLES)
-    output:
-        os.path.join(BAMBU,"se_raw.rds")
-    params:
-        os.path.join(ReferenceDir,FastaGunzipped),
-        os.path.join(ReferenceDir,GtfGunzipped)
-    threads:
-        BigJobCpu
-    resources:
-        mem_mb=BigJobMem,
-        time=BigTime
-    conda:
-        os.path.join('..', 'envs','quantify.yaml')
-    script:
-        "../scripts/bambu.R"
 
 
 

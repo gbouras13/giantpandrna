@@ -1,6 +1,6 @@
 rule minimap:
     input:
-        os.path.join(PYCHOPPER,"{sample}_pychop_full_length_output.fastq")
+        get_input_lr_fastqs
     output:
         os.path.join(ALIGN,"{sample}.bam")
     threads:

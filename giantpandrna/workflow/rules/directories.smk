@@ -25,15 +25,12 @@ FINAL_PYCHOPPER_DCS109 =  os.path.join(OUTPUT, 'FINAL_PYCHOPPER_DCS109')
 ALIGN = os.path.join(PROCESSING, 'ALIGN')
 BAM_STATS = os.path.join(OUTPUT, 'BAM_STATS')
 
-#align_porechop.smk
-ALIGN_RAW = os.path.join(PROCESSING, 'ALIGN_RAW')
 
 #quantify 
 BAMBU = os.path.join(OUTPUT, 'BAMBU')
 
 # nanareceptor
 NANORECEPTOR_RAW = os.path.join(OUTPUT, 'NANORECEPTOR_RAW')
-NANORECEPTOR_PYCHOPPER = os.path.join(OUTPUT, 'NANORECEPTOR_PYCHOPPER')
 
 
 

@@ -2,7 +2,7 @@
 
 ONT Long-read cDNA quanitification pipeline using Bambu
 
-Assumes DCS109 (default) or PCS109 kits used to generate libraries.
+Assumes DCS109 (default) or PCS109 kits used to generate libraries. Will add direct RNA when I get some data :)
 
 ```
 git clone "https://github.com/gbouras13/giantpandrna.git"
@@ -16,20 +16,13 @@ giantpandrna run --help
 Steps
 ========
 
-1. Runs pychopper on the raw input reads (qc.smk)
-2. If you have DCS109, runs pychopper resuce mode to rescue more unclassified reads (qc.smk)
-3. Aggreagates all full length and rescued reads (qc.smk)
-4. Maps all reads from 3. using minimap2 against your chosen transcriptome (align.smk)
-5. Sorts bam and calculates statistics (align.smk)
-6. Runs [bambu](https://github.com/GoekeLab/bambu) on all input bams.
+For each sample (steps1-4):
 
-
-
-
-
-
-
-
+1. Runs nanopolish pychopper on the  input reads (qc.smk)
+2. If you have DCS109, runs pychopper resuce mode to rescue more unclassified reads (qc.smk), then aggreagates all full length and rescued reads (qc.smk)
+3. Maps all input reads using minimap2 against your chosen transcriptome (align.smk).
+4. Sorts bam and calculates statistics (align.smk).
+5. Runs [bambu](https://github.com/GoekeLab/bambu) on all input bams.
 
 
 Input
@@ -65,8 +58,8 @@ After that has finished, run the pipeline, specifying the species and reference 
 giantpandrna run --input <input.csv> --output <output_dir> --threads <threads>  --species Rat --referenceDir RatDB --kit DCS109
 ```
 
-I would highly highly recommend running hybracter using a Snakemake profile. Please see this blog [post](https://fame.flinders.edu.au/blog/2021/08/02/snakemake-profiles-updated) for more details. I have included an example slurm profile in the profile directory, but check out this [link](https://github.com/Snakemake-Profiles) for more detail on other HPC job scheduler profiles. 
+I would highly highly recommend running giantpandrna using a Snakemake profile. Please see this blog [post](https://fame.flinders.edu.au/blog/2021/08/02/snakemake-profiles-updated) for more details. I have included an example slurm profile in the profile directory, but check out this [link](https://github.com/Snakemake-Profiles) for more detail on other HPC job scheduler profiles. 
 
 ```
-giantpandrna run --input <input.csv> --output <output_dir> --threads <threads>  --species Rat --referenceDir RatDB--profile profiles/giantpandrna
+giantpandrna run --input <input.csv> --output <output_dir> --threads <threads>  --species Rat --referenceDir RatDB --profile profiles/giantpandrna
 ```

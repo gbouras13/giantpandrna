@@ -1,19 +1,3 @@
-# rule porechop:
-#     input:
-#         get_input_lr_fastqs
-#     output:
-#         os.path.join(PORECHOP,"{sample}_porechopped.fastq.gz")
-#     threads:
-#         BigJobCpu
-#     resources:
-#         mem_mb=BigJobMem,
-#         time=MediumTime
-#     conda:
-#         os.path.join('..', 'envs','porechop.yaml')
-#     shell:
-#         '''
-#         porechop -i {input} -o {output} --threads {threads}
-#         '''
 
 rule nanoplot:
     input:
@@ -29,6 +13,20 @@ rule nanoplot:
         os.path.join('..', 'envs','nanoplot.yaml')
     shell:
         'NanoPlot --prefix pass --fastq {input} -t {threads} -o {output.dir}'
+
+rule nanoplot_aggr:
+    """aggregate qc"""
+    input:
+        expand( os.path.join(NANOPLOT, "{sample}"), sample = SAMPLES)
+    output:
+        os.path.join(FLAGS, "nanoplot_aggr.txt")
+    threads:
+        1
+    shell:
+        """
+        touch {output[0]}
+        """
+
 
 rule pychopper:
     input:
