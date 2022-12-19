@@ -20,6 +20,7 @@ THREADS = config['threads']
 
 
 # snakemake params 
+MassiveJobMem = config["BigJobMem"]
 BigJobMem = config["BigJobMem"]
 BigJobCpu = config["BigJobCpu"]
 SmallJobMem = config["SmallJobMem"]
