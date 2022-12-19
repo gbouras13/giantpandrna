@@ -4,7 +4,7 @@ rule minimap:
     output:
         os.path.join(ALIGN,"{sample}.bam")
     threads:
-        3
+        BigJobCpu
     resources:
         mem_mb=BigJobMem,
         time=BigTime
