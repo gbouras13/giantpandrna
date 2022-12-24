@@ -14,7 +14,7 @@ bambuAnnotations <- prepareAnnotations(gtf.file)
 
 #### need to index the fasta first with samtools faidx 
 
-test <- bambu(reads = bam_files, annotations = bambuAnnotations, genome = fa.file, ncore = snakemake@threads)
+test <- bambu(reads = bam_files, annotations = bambuAnnotations, genome = fa.file, ncore = snakemake@threads, lowMemory = TRUE)
 
 saveRDS(test, file = snakemake@output[[1]])
 
