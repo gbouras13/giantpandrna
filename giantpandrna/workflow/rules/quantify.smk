@@ -11,7 +11,7 @@ rule bambu:
         BigJobCpu
     resources:
         mem_mb=MassiveJobMem,
-        time=BigTime
+        time=1000
     conda:
         os.path.join('..', 'envs','quantify.yaml')
     script:
