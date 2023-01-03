@@ -26,6 +26,7 @@ For each sample (steps 1-4):
 5. Runs [nanoreceptor](https://github.com/gbouras13/NanoReceptor) on the input reads to identify immunoglobulin counts in each sample.
 
 Once 4. has finished for all samples:
+
 6. Runs [bambu](https://github.com/GoekeLab/bambu) on all input aligned bams.
 
 
