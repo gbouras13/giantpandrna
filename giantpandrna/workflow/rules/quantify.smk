@@ -10,8 +10,8 @@ rule bambu:
     threads:
         BigJobCpu
     resources:
-        mem_mb=MassiveJobMem,
-        time=BigTime
+        mem_mb=250000,
+        time=1000
     conda:
         os.path.join('..', 'envs','quantify.yaml')
     script:
