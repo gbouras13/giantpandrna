@@ -1,10 +1,10 @@
 channels:
-  - epi2melabs
+  - nanoporetech
   - conda-forge
   - bioconda
   - defaults
 dependencies:
-  - epi2melabs::pychopper
+  - nanoporetech::pychopper
   - coreutils
 
 
