@@ -105,7 +105,7 @@ rule pychopper_pcs109_pcs111_concat:
         time=SmallTime
     shell:
         '''
-        cat {input[0]} {input[1]} {input[2]} {input[3]} > {output[0]}
+        cat {input[0]} {input[1]}  > {output[0]}
         '''
 
 
