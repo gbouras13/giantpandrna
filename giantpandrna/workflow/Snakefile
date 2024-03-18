@@ -24,6 +24,7 @@ THREADS = config['threads']
 MassiveJobMem = config["BigJobMem"]
 BigJobMem = config["BigJobMem"]
 BigJobCpu = config["BigJobCpu"]
+MediumJobCpu = config["MediumJobCpu"]
 SmallJobMem = config["SmallJobMem"]
 SmallJobCpu = config["SmallJobCpu"]
 

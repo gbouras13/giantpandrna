@@ -25,7 +25,7 @@ rule bam_sort:
     output:
         os.path.join(ALIGN,"{sample}_sorted.bam")
     threads:
-        BigJobCpu
+        MediumJobCpu
     resources:
         mem_mb=BigJobMem,
         time=MediumTime

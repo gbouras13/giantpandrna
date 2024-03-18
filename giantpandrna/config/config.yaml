@@ -15,6 +15,7 @@ referenceDir: 'RatDB'
 MassiveJobMem: 350000   
 BigJobMem: 32000     
 BigJobCpu: 16       
+MediumJobCpu: 4     
 SmallJobMem: 4000
 SmallJobCpu: 1 
 

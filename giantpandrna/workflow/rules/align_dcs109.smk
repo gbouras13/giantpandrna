@@ -5,7 +5,7 @@ rule minimap_DCS109:
     output:
         os.path.join(ALIGN,"{sample}.bam")
     threads:
-        BigJobCpu
+        MediumJobCpu
     resources:
         mem_mb=MassiveJobMem,
         time=BigTime

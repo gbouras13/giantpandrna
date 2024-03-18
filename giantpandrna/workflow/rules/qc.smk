@@ -5,7 +5,7 @@ rule nanoplot:
     output:
         dir = directory(os.path.join(NANOPLOT, "{sample}")) 
     threads:
-        BigJobCpu
+        MediumJobCpu
     resources:
         mem_mb=BigJobMem,
         time=MediumTime
@@ -39,7 +39,7 @@ rule pychopper:
         os.path.join(PYCHOPPER,"{sample}_pychop_full_length_output.fastq"),
         os.path.join(PYCHOPPER,"{sample}_stats.txt")
     threads:
-        BigJobCpu
+        MediumJobCpu
     resources:
         mem_mb=BigJobMem,
         time=BigTime
@@ -63,7 +63,7 @@ rule pychopper_rescue:
         os.path.join(PYCHOPPER_RESCUE,"{sample}_pychop_rescued.fastq"),
         os.path.join(PYCHOPPER_RESCUE,"{sample}_pychop_full_length_output.fastq")
     threads:
-        BigJobCpu
+        MediumJobCpu
     resources:
         mem_mb=BigJobMem,
         time=BigTime
