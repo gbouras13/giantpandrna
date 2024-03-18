@@ -1,5 +1,5 @@
 options(
-    BIOCONDUCTOR_CONFIG_FILE = "file:///hpcfs/users/a1667917/bioconductor/config.yaml"
+    BIOCONDUCTOR_CONFIG_FILE = snakemake@params[[3]]
 )
 
 library(bambu)

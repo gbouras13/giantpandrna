@@ -12,7 +12,8 @@ outTouch = os.path.join(config['output'], config['input'])
 
 ### DEFAULT CONFIG FILE
 configfile: os.path.join(workflow.basedir, '../', 'config', 'config.yaml')
-
+# bioconductor config
+BIOCONDUCTOR_CONFIG_FILE = os.path.join(workflow.basedir, '../', 'config', "bioconductor", "config.yaml")
 
 CSV = config['input']
 OUTPUT = config['output']
@@ -79,7 +80,10 @@ wildcard_constraints:
 # Import rules and functions
 include: "rules/targets.smk"
 include: "rules/qc.smk"
-include: "rules/align.smk"
+if Kit == "DCS109":
+    include: "rules/align_dcs109.smk"
+else:
+    include: "rules/align_pcs109_pcs111.smk"
 include: "rules/quantify.smk"
 include: "rules/nanoreceptor.smk"
 

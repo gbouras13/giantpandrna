@@ -36,7 +36,8 @@ rule pychopper:
         os.path.join(PYCHOPPER,"{sample}_pychop_report.pdf"),
         os.path.join(PYCHOPPER,"{sample}_pychop_unclassified.fastq"),
         os.path.join(PYCHOPPER,"{sample}_pychop_rescued.fastq"),
-        os.path.join(PYCHOPPER,"{sample}_pychop_full_length_output.fastq")
+        os.path.join(PYCHOPPER,"{sample}_pychop_full_length_output.fastq"),
+        os.path.join(PYCHOPPER,"{sample}_stats.txt")
     threads:
         BigJobCpu
     resources:
@@ -49,7 +50,7 @@ rule pychopper:
     shell:
         '''
         gunzip -c {input[0]} > {output[0]}
-        pychopper -r {output[1]} -u {output[2]} -w {output[3]} -k {params[0]}  -t {threads} {output[0]} {output[4]}
+        pychopper -r {output[1]} -u {output[2]} -w {output[3]} -S {output[5]} -k {params[0]}  -t {threads} {output[0]} {output[4]}
         '''
 
 # rescue if dcs109

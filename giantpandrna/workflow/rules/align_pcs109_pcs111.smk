@@ -1,6 +1,7 @@
-rule minimap:
+
+rule minimap_PCS109_PCS111:
     input:
-        get_input_lr_fastqs
+        os.path.join(FINAL_PYCHOPPER_PCS109_PCS111,"{sample}_pychopper.fastq")
     output:
         os.path.join(ALIGN,"{sample}.bam")
     threads:
@@ -16,6 +17,7 @@ rule minimap:
         '''
         minimap2 -ax splice -t {threads} {params[0]} {input[0]} | samtools view -@ {threads} -S -b > {output[0]}
         '''
+
 
 rule bam_sort:
     input:

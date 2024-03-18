@@ -6,7 +6,8 @@ rule bambu:
         os.path.join(BAMBU,"se.rds")
     params:
         os.path.join(ReferenceDir,FastaGunzipped),
-        os.path.join(ReferenceDir,GtfGunzipped)
+        os.path.join(ReferenceDir,GtfGunzipped),
+        BIOCONDUCTOR_CONFIG_FILE
     threads:
         BigJobCpu
     resources:

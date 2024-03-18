@@ -5,6 +5,8 @@ log: 'giantpandrna/giantpandrna.log'
 threads: 16
 kit: 'DCS109'
 
+
+
 # for installDB.smk
 species: 'Rat'
 referenceDir: 'RatDB'
